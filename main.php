@@ -7,11 +7,6 @@
 
 	<body>
 
-	<form action="mysql_input.php" method="POST">
-		<input type="text" name="User" placeholder="kasutajanimi" required><br>		
-		<input type="text" name="Note" placeholder="note" required><br>
-		<button type="submit">Lisa märge!</button> <a href="logout.php">logi välja</a><br>
-	</form>
 	<?php require 'sessioncheck.php'; ?>
 	<?php 
 		$host = "localhost";
@@ -36,6 +31,12 @@
 		
 	   mysqli_close($connect);
 	?>
+
+	<form action="mysql_input.php" method="POST">
+		<input type="text" name="User" value="<?php echo $username; ?>" hidden><br>		
+		<input type="text" name="Note" placeholder="kirjuta siia märge" required><br>
+		<button type="submit">Lisa märge!</button> <a href="logout.php">logi välja</a><br>
+	</form>
 
 	</body>
 </html>
